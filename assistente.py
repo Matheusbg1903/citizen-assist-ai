@@ -55,4 +55,44 @@ class Assistente:
             return "MEDIA"
         return None
     
-    
+
+
+    def registrar(self, origem, pergunta, id_orientacao, encontrou, ajudou,
+                  tentativas, tempo):
+        atendimento = {
+            "data": datetime.now().strftime("%Y-%m%d %H:%M:%S"),
+            "sessao": self.sessao,
+            "origem": origem,
+            "pergunta": pergunta,
+            "id_orientacao": id_orientacao,
+            "encontrou": encontrou,
+            "ajudou": ajudou,
+            "tentativas": tentativas,
+            "tempo_segundos": tempo,
+            "facilidade": None,
+        }
+        self.historico.append(atendimento)
+        self.salvar_historico()
+
+    def carregar_historico(self):
+        try:
+            with open(self.caminho_historico, "r", encoding="utf-8") as arquivo:
+                dados = json.load(arquivo)
+        except FileNotFoundError:
+            return[]
+        except(json.JSONDecodeError, OSError):
+            print("Atenção: histórico ilegível. Um novo será iniciado.")
+            return[]
+        if not isinstance(dados, list):
+            return[]
+        return [item for item in dados if isinstance(item, dict)]
+
+    def salvar_historico(self):
+        try:
+            pasta = os.path.dirname(self.caminho_historico)
+            if pasta:
+                os.makedirs(pasta, exist_ok=True)
+            with open(self.caminho_histórico, "w", encoding="utf8") as arquivo:
+                json.dump(self.historico, arquivo, ensure_ascii=False, ident=2)
+        except OSError:
+            print("Atenção: Não foi possível salvar o histórico.")
