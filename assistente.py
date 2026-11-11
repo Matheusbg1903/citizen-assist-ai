@@ -274,19 +274,62 @@ class Assistente:
         else:
             print(" (nenhuma)")
 
-            def exportar_csv(self):
-                try:
-                    pasta = os.path.dirname(self.caminho_csv)
-                    if pasta:
-                        os.makedirs(pasta, exist_ok=True)
-                    #utf-8-sig pro excel abriuros acentos certo
-                    with open(self.caminho_csv, "w", newline="",
-                              encoding="utf-8-sig") as arquivo:
-                        escritor = csv.DictWriter(arquivo, fieldnames=CAMPOS_CSV,
-                                                  extrasaction="ignore")
-                        escritor.writeheader()
-                        for atendimento in self.historico:
-                            escritor.writerow(atendimento)
-                    print(f"Atendimentos exportados para {self.caminho_csv}.")
-                except OSError:
-                    print("Atenção: não foi possível exportar o CSV.") 
+    def exportar_csv(self):
+        try:
+            pasta = os.path.dirname(self.caminho_csv)
+            if pasta:
+                 os.makedirs(pasta, exist_ok=True)
+            #utf-8-sig pro excel abriuros acentos certo
+            with open(self.caminho_csv, "w", newline="",
+                      encoding="utf-8-sig") as arquivo:
+                escritor = csv.DictWriter(arquivo, fieldnames=CAMPOS_CSV,
+                                          extrasaction="ignore")
+                escritor.writeheader()
+                for atendimento in self.historico:
+                    escritor.writerow(atendimento)
+            print(f"Atendimentos exportados para {self.caminho_csv}.")
+        except OSError:
+            print("Atenção: não foi possível exportar o CSV.")
+    
+     
+           
+    def adicionar_opcao(self, rotulo, funcao):
+        self.opcoes_extras.append((rotulo, funcao))
+
+    def executar(self):
+        print(f"\n=== {self.nome} ===")
+        print("Orientações sobre serviços e direitos, com fonte e data"
+              "de verificação.")
+        print("Aviso: este assistente NÃO é um canal oficial. "
+              "Não digite CPF, telefone ou e-mail.")
+        
+        opcoes = [
+            ("Fazer uma pergunta", self.perguntar),
+            ("Navegar por categorias", self.navegar),
+            ("Ver indicadores", self.mostrar_indicadores),
+            ("Exportar atendimentos (CSV)", self.exportar_csv),
+        ] + self.opcoes_extras
+        
+        while True:
+            print("\nMenu principal:")
+            for numero, (rotulo, _) in enumerate(opcoes, start=1):
+                print(f" {numero}. {rotulo}")
+            print(" 0. Sair")
+            escolha = self._ler_numero("Escolha uma opção: ", 0, len(opcoes))
+            if escolha == 0:
+                break
+            opcoes[escolha -1][1]()
+            
+            self.encerrar()
+            
+    def encerrar(self):
+        da_sessao = [h for h in self.historico
+                     if h.get("sessao") == self.sessao]
+        if da_sessao:
+            nota = self._ler_numero(
+                "\nDe 1 a 5, quão fácil foi usar o assistente? ", 1, 5,)
+            for atendimento in da_sessao:
+                atendimento["facilidade"] = nota
+            self.salvar_historico()
+        self.exportar_csv()
+        print("Obrigado por usar o assistente. Até logo!")
