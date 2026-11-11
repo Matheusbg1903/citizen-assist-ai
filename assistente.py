@@ -113,7 +113,7 @@ class Assistente:
         id_orientacao = None
         voltar = False
 
-        while True
+        while True:
             texto = input("/nDigite sua dúvida (0 para voltar): ").strip()
             if texto == '0':
                 voltar = True
@@ -173,4 +173,43 @@ class Assistente:
         if categorias:
             print("Categorias disponíveis: " + ", ".join(categorias))
 
-            
+
+
+    def navegar(self):
+        while True:
+            categorias = self.base.categorias()
+            if not categorias:
+                print("Nenhuma categoria disponível.")
+                return
+            print("\nCategorias:")
+            for numero, categoria in enumerate(categorias, start=1):
+                print(f" {numero}, {categoria}")
+            print(" 0. Voltar")
+            escolha = self._ler_numero("Escolha uma categoria: ",
+                                       0, len(categorias))
+            if escolha == 0:
+                return
+            self._navegar_categoria(categorias[escolha - 1])
+
+    def _navegar_categoria(self, categoria):
+        orientacoes = self.base.por_categoria(categoria)
+        while True:
+            print(f"\n{categoria}:")
+            for numero, orientacao in enumerate(orientacoes, start=1):
+                print(f" {numero}. {orientacao.titulo}")
+            print(" 0. Voltar")
+            escolha = self._ler_numero("Escolha uma orientação: ",
+                                       0, len(orientacoes))
+            if escolha == 0: return
+            return
+
+        inicio = time.time()
+        orientacao = orientacoes[escolha -1]
+        print()
+        orientacao.exibir()
+        ajudou = self._ler_sim_nao(
+            "\nEssa orientação respondeu dúvida? (S/N)")
+        tempo = round(time.time() - inicio, 1)
+        self.registrar("categoria", orientacao.titulo, orientacao.id,
+                       True, ajudou, 1, tempo)
+
