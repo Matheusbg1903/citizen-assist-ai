@@ -213,3 +213,80 @@ class Assistente:
         self.registrar("categoria", orientacao.titulo, orientacao.id,
                        True, ajudou, 1, tempo)
 
+    
+    
+    def _media(self, valores):
+        return sum(valores) / len (valores) if valores else 0
+
+    def indicadores(self):
+        total = len(self.historico)
+        if total == 0:
+            return None
+
+        encontrados = [h for h in self.historico if h.get("encontrou")]
+        ajudaram = [h for h in self.historico if h.get("ajudou")]
+
+        # a nota  é por sessão, então conta cada sessão uma vez
+        notas_por_sessao = {}
+        for h in self.historico:
+            if h.get("facilidade") is not None:
+                notas_por_sessao[h.get("sessao")] = h["facilidade"]
+
+        sem_solucao = []
+        for h in self.historico:
+            if h.get("origem") == "pergunta" and not h.get("ajudou"):
+                pergunta = h.get("pergunta", "")
+                if pergunta and pergunta not in sem_solucao:
+                    sem_solucao.append(pergunta)
+
+        return{
+            "total": total,
+            "resposta_encontrada": len(encontrados) / total * 100,
+            "taxa_acerto": len(ajudaram) / 100,
+            "tempo_medio": self._media(
+                [h.get("tempo_segundos", 0) for h in encontrados]),
+            "tentivas_medias": self._media(
+                [h.get("tentiva", 1)for h in self.historico]),
+            "facilidades": (self._media(list(notas_por_sessao.values()))
+                            if notas_por_sessao else None),
+                            "sem_solucao": sem_solucao,
+        }
+
+    def mostrar_indicadores(self):
+        dados = self.indicadores()
+        if dados is None:
+            print("\nAinda não há atendimentos registrados.")
+            return
+        print("\n=== Indicadores ===")
+        print(f"Atendimentos: {dados['total']}")
+        print(f"Resposta encontrada (%): {dados['resposta_encontrada']:.1f}")
+        print(f"Taxa de acerto: ajudou (%): {dados['taxa_acerto']:.1f}")
+        print(f"Tempo médio para encontrar: {dados['tempo_medio']:.1f} s")
+        print(f"Tentativas por atendimento: {dados['tentativas_medias']:.1f}")
+        if dados["facilidade"] is None:
+            print("Facilidade de uso (1 a 5): sem nota ainda")
+        else: 
+            print(f"Facilidade de uso (1 a 5): {dados['facilidade']:.1f}")
+        print("Dúvidas sem solução: ")
+        if dados["sem_solucao"]:
+            for pergunta in dados["sem_solucao"]:
+                print(f" -{pergunta}")
+        else:
+            print(" (nenhuma)")
+
+            def exportar_csv(self):
+                try:
+                    pasta = os.path.dirname(self.caminho_csv)
+                    if pasta:
+                        os.makedirs(pasta, exist_ok=True)
+                    #utf-8-sig pro excel abriuros acentos certo
+                    with open(self.caminho_csv, "w", newline="",
+                              encoding="utf-8-sig") as arquivo:
+                        escritor = csv.DictWriter(arquivo, fieldnames=CAMPOS_CSV,
+                                                  extrasaction="ignore")
+                        escritor.writeheader()
+                        for atendimento in self.historico:
+                            escritor.writerow(atendimento)
+                    print(f"Atendimentos exportados para {self.caminho_csv}.")
+                except OSError:
+                    print("Atenção: não foi possível exportar o CSV.") 
