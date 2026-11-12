@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import re
 import time
 from datetime import datetime
 
@@ -45,8 +46,8 @@ class Assistente:
 
     def _tem_dado_pessoal(self, texto):
         # 8+ digitos (cpf, telefone) ou @ (email)
-        digitos = sum(1 for letra in texto if letra.isdigit())
-        return digitos >= 8 or "@" in texto
+        tem_sequencia = re.search(r"\d(?:[\s.()-]*\d){7,}", texto)
+        return tem_sequencia is not None or "@" in texto
 
     def nivel_confianca(self, pontos):
         if pontos >= LIMITE_ALTA:
@@ -149,9 +150,9 @@ class Assistente:
     def _apresentar(self, resultados):
         pontos, melhor = resultados[0]
         print(f"\nConfiança da resposta: {self.nivel_confianca(pontos)}"
-              f"({pontos} pontos)\n")
+              f" ({pontos} pontos)\n")
         melhor.exibir()
-        if self._ler_sim_nao("\nEssa orientação respondeu  sua dúvida? (S/N)"):
+        if self._ler_sim_nao("\nEssa orientação respondeu sua dúvida? (S/N): "):
             return True, melhor.id
 
         # até duas alternativas, só as com 3+ pontos
@@ -183,7 +184,7 @@ class Assistente:
                 return
             print("\nCategorias:")
             for numero, categoria in enumerate(categorias, start=1):
-                print(f" {numero}, {categoria}")
+                print(f" {numero}. {categoria}")
             print(" 0. Voltar")
             escolha = self._ler_numero("Escolha uma categoria: ",
                                        0, len(categorias))
@@ -204,15 +205,15 @@ class Assistente:
                 return
             
 
-        inicio = time.time()
-        orientacao = orientacoes[escolha -1]
-        print()
-        orientacao.exibir()
-        ajudou = self._ler_sim_nao(
-            "\nEssa orientação respondeu dúvida? (S/N)")
-        tempo = round(time.time() - inicio, 1)
-        self.registrar("categoria", orientacao.titulo, orientacao.id,
-                       True, ajudou, 1, tempo)
+            inicio = time.time()
+            orientacao = orientacoes[escolha -1]
+            print()
+            orientacao.exibir()
+            ajudou = self._ler_sim_nao(
+                "\nEssa orientação respondeu dúvida? (S/N): ")
+            tempo = round(time.time() - inicio, 1)
+            self.registrar("categoria", orientacao.titulo, orientacao.id,
+                           True, ajudou, 1, tempo)
 
     
     
@@ -299,7 +300,7 @@ class Assistente:
 
     def executar(self):
         print(f"\n=== {self.nome} ===")
-        print("Orientações sobre serviços e direitos, com fonte e data"
+        print("Orientações sobre serviços e direitos, com fonte e data "
               "de verificação.")
         print("Aviso: este assistente NÃO é um canal oficial. "
               "Não digite CPF, telefone ou e-mail.")
