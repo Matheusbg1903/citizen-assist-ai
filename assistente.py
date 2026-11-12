@@ -1,7 +1,6 @@
 import csv
 import json
 import os
-import re
 import time
 from datetime import datetime
 
@@ -46,8 +45,8 @@ class Assistente:
 
     def _tem_dado_pessoal(self, texto):
         # 8+ digitos (cpf, telefone) ou @ (email)
-        tem_sequencia = re.search(r"\d(?:[\s.()-]*\d){7,}", texto)
-        return tem_sequencia is not None or "@" in texto
+        digitos = sum(1 for letra in texto if letra.isdigit())
+        return digitos >= 8 or "@" in texto
 
     def nivel_confianca(self, pontos):
         if pontos >= LIMITE_ALTA:
@@ -210,7 +209,7 @@ class Assistente:
             print()
             orientacao.exibir()
             ajudou = self._ler_sim_nao(
-                "\nEssa orientação respondeu dúvida? (S/N): ")
+                "\nEssa orientação respondeu sua dúvida? (S/N): ")
             tempo = round(time.time() - inicio, 1)
             self.registrar("categoria", orientacao.titulo, orientacao.id,
                            True, ajudou, 1, tempo)
@@ -248,7 +247,7 @@ class Assistente:
             "tempo_medio": self._media(
                 [h.get("tempo_segundos", 0) for h in encontrados]),
             "tentativas_medias": self._media(
-                [h.get("tentivas", 1) for h in self.historico]),
+                [h.get("tentativas", 1) for h in self.historico]),
             "facilidade": (self._media(list(notas_por_sessao.values()))
                             if notas_por_sessao else None),
                             "sem_solucao": sem_solucao,
