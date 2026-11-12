@@ -19,9 +19,9 @@ class Assistente:
         self.base = base
         self.caminho_historico = caminho_historico
         self.caminho_csv = caminho_csv
-        self.sessao = datetime.now().strftime("%Y%m%d-%H%M%S%F")
+        self.sessao = datetime.now().strftime("%Y%m%d-%H%M%S%f")
         self.opcoes_extras = []
-        self.caminho_historico = self.carregar_historico()
+        self.historico = self.carregar_historico()
 
     def _ler_numero(self, texto, minimo, maximo):
         while True:
@@ -51,7 +51,7 @@ class Assistente:
     def nivel_confianca(self, pontos):
         if pontos >= LIMITE_ALTA:
             return "ALTA"
-        if pontos >= "MEDIA":
+        if pontos >= LIMITE_MEDIA:
             return "MEDIA"
         return None
     
@@ -60,7 +60,7 @@ class Assistente:
     def registrar(self, origem, pergunta, id_orientacao, encontrou, ajudou,
                   tentativas, tempo):
         atendimento = {
-            "data": datetime.now().strftime("%Y-%m%d %H:%M:%S"),
+            "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "sessao": self.sessao,
             "origem": origem,
             "pergunta": pergunta,
@@ -92,8 +92,8 @@ class Assistente:
             pasta = os.path.dirname(self.caminho_historico)
             if pasta:
                 os.makedirs(pasta, exist_ok=True)
-            with open(self.caminho_histórico, "w", encoding="utf8") as arquivo:
-                json.dump(self.historico, arquivo, ensure_ascii=False, ident=2)
+            with open(self.caminho_historico, "w", encoding="utf8") as arquivo:
+                json.dump(self.historico, arquivo, ensure_ascii=False, indent=2)
         except OSError:
             print("Atenção: Não foi possível salvar o histórico.")
 
@@ -141,7 +141,7 @@ class Assistente:
 
         if tentativas > 0:
             tempo = round(time.time() - inicio, 1)
-            self.registrar("perguntas", pergunta, id_orientacao, encontrou,
+            self.registrar("pergunta", pergunta, id_orientacao, encontrou,
                            ajudou, tentativas, tempo)
             
         return not voltar
@@ -163,8 +163,8 @@ class Assistente:
             if self._ler_sim_nao("\nEssa orientação respondeu sua dúvida? (S/N): "):
                 return True, alternativa.id
 
-            print("\nTente reescrever a pergunta com outras palavras.")
-            return False, melhor.id
+        print("\nTente reescrever a pergunta com outras palavras.")
+        return False, melhor.id
 
     def _mostrar_nao_encontrei(self):
         print("\nNão encontrei uma orientação para essa dúvida.")
@@ -200,8 +200,9 @@ class Assistente:
             print(" 0. Voltar")
             escolha = self._ler_numero("Escolha uma orientação: ",
                                        0, len(orientacoes))
-            if escolha == 0: return
-            return
+            if escolha == 0: 
+                return
+            
 
         inicio = time.time()
         orientacao = orientacoes[escolha -1]
@@ -242,12 +243,12 @@ class Assistente:
         return{
             "total": total,
             "resposta_encontrada": len(encontrados) / total * 100,
-            "taxa_acerto": len(ajudaram) / 100,
+            "taxa_acerto": len(ajudaram) / total * 100,
             "tempo_medio": self._media(
                 [h.get("tempo_segundos", 0) for h in encontrados]),
-            "tentivas_medias": self._media(
-                [h.get("tentiva", 1)for h in self.historico]),
-            "facilidades": (self._media(list(notas_por_sessao.values()))
+            "tentativas_medias": self._media(
+                [h.get("tentivas", 1)for h in self.historico]),
+            "facilidade": (self._media(list(notas_por_sessao.values()))
                             if notas_por_sessao else None),
                             "sem_solucao": sem_solucao,
         }
@@ -320,7 +321,7 @@ class Assistente:
                 break
             opcoes[escolha -1][1]()
             
-            self.encerrar()
+        self.encerrar()
             
     def encerrar(self):
         da_sessao = [h for h in self.historico

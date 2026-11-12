@@ -3,7 +3,7 @@ from assistente import Assistente
 
 
 def main():
-    base = BaseConhecimento("dataa/base_conhecimento.json")
+    base = BaseConhecimento("data/base_conhecimento.json")
     if not base.carregar():
         print("Não foi possível carregar a base de conhecimento.")
         print("Verifique o arquivo data/base_conhecimento.json")
