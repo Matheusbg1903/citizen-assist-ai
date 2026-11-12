@@ -42,7 +42,7 @@ class BaseConhecimento:
              try:
                   self.orientacoes.append(Orientacao(**registro))
              except TypeError:
-                  print("Atenção: um regsitro com campos inválidos foi ignorado.")
+                  print("Atenção: um registro com campos inválidos foi ignorado.")
         return len(self.orientacoes) > 0
 
     def categorias(self):

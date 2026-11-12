@@ -114,12 +114,12 @@ class Assistente:
         voltar = False
 
         while True:
-            texto = input("/nDigite sua dúvida (0 para voltar): ").strip()
+            texto = input("\nDigite sua dúvida (0 para voltar): ").strip()
             if texto == '0':
                 voltar = True
                 break
             if texto == '':
-                print("Digite um apergunta ou 0 para voltar.")
+                print("Digite uma pergunta ou 0 para voltar.")
                 continue
             if self._tem_dado_pessoal(texto):
                 #não conta como tentativa nem é registrada
@@ -148,7 +148,7 @@ class Assistente:
     
     def _apresentar(self, resultados):
         pontos, melhor = resultados[0]
-        print(f"\nCOnfiança da resposta: {self.nivel_confianca(pontos)}"
+        print(f"\nConfiança da resposta: {self.nivel_confianca(pontos)}"
               f"({pontos} pontos)\n")
         melhor.exibir()
         if self._ler_sim_nao("\nEssa orientação respondeu  sua dúvida? (S/N)"):
@@ -247,7 +247,7 @@ class Assistente:
             "tempo_medio": self._media(
                 [h.get("tempo_segundos", 0) for h in encontrados]),
             "tentativas_medias": self._media(
-                [h.get("tentivas", 1)for h in self.historico]),
+                [h.get("tentivas", 1) for h in self.historico]),
             "facilidade": (self._media(list(notas_por_sessao.values()))
                             if notas_por_sessao else None),
                             "sem_solucao": sem_solucao,
