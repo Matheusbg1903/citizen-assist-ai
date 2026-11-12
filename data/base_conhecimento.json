@@ -1,1 +1,270 @@
-
+[
+  {
+    "id": "TS01",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Tarifa Social de Energia: quem tem direito",
+    "palavras_chave": [
+      "tarifa social",
+      "quem tem direito",
+      "baixa renda",
+      "tenho direito",
+      "beneficio na conta de luz"
+    ],
+    "resposta": "A Tarifa Social é um desconto na conta de luz para: famílias no CadÚnico com renda de até meio salário mínimo por pessoa; idosos com 65 anos ou mais ou pessoas com deficiência que recebem o BPC; e famílias no CadÚnico com renda de até 3 salários mínimos que tenham alguém que depende de aparelho elétrico para tratamento de saúde. Vale só para residência e para uma única conta por família. O desconto é automático: não precisa pedir, desde que alguém da família seja o titular da conta e o CadÚnico esteja atualizado.",
+    "documentos": [],
+    "onde": "Não é preciso pedir. Se tiver direito e o desconto não aparecer, procure a distribuidora ou o CRAS.",
+    "fonte": "ANEEL – Tarifa Social: https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "TS02",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Gratuidade até 80 kWh por mês",
+    "palavras_chave": [
+      "80 kwh",
+      "80kwh",
+      "gratuidade",
+      "conta zerada",
+      "nao pagar a luz",
+      "isencao",
+      "luz de graca",
+      "zerada",
+      "kwh"
+    ],
+    "resposta": "Quem tem a Tarifa Social não paga a energia dos primeiros 80 kWh consumidos no mês. O que passar de 80 kWh é cobrado normalmente, sem desconto. Mesmo com consumo abaixo de 80 kWh, a conta pode vir com tributos como ICMS e a contribuição de iluminação pública, que são do estado e do município. Atenção: as faixas antigas de 65%, 40% e 10% de desconto não valem mais desde 5 de julho de 2025.",
+    "documentos": [],
+    "onde": "Confira o consumo em kWh e o desconto aplicado na sua própria conta de luz.",
+    "fonte": "ANEEL – Tarifa Social: https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "TS03",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Desconto Social: renda entre meio e um salário mínimo",
+    "palavras_chave": [
+      "desconto social",
+      "120 kwh",
+      "120kwh",
+      "meio salario",
+      "um salario minimo",
+      "luz do povo"
+    ],
+    "resposta": "Desde 1º de janeiro de 2026, famílias no CadÚnico com renda entre meio e um salário mínimo por pessoa têm o Desconto Social: isenção do encargo CDE no consumo de até 120 kWh por mês, o que reduz a tarifa em cerca de 11,8%. Não é gratuidade: a família continua pagando a energia. O consumo acima de 120 kWh não tem redução. O desconto é automático para quem está com o CadÚnico atualizado.",
+    "documentos": [],
+    "onde": "Automático. Se não aparecer na conta, procure a distribuidora ou o CRAS.",
+    "fonte": "MME – Programa Luz do Povo: https://www.gov.br/mme/pt-br/luzdopovo",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "TS04",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Tenho direito mas o desconto não veio na conta",
+    "palavras_chave": [
+      "nao recebi",
+      "nao veio o desconto",
+      "desconto sumiu",
+      "perdi o beneficio",
+      "nao aparece o desconto",
+      "titular da conta"
+    ],
+    "resposta": "Os motivos mais comuns são: ninguém da família é o titular da conta (por exemplo, a conta está no nome do dono do imóvel ou do antigo morador); o CPF do titular está errado no CadÚnico ou na distribuidora; o endereço no CadÚnico está desatualizado ou fora da área da distribuidora; o CadÚnico não foi atualizado nos últimos 2 anos; ou a ligação de energia é irregular. Corrija o que faltar e depois entre em contato com a distribuidora.",
+    "documentos": [
+      "Conta de luz recente",
+      "Documento com CPF do titular",
+      "Comprovante de inscrição no CadÚnico (NIS ou código familiar)"
+    ],
+    "onde": "CRAS (para atualizar o CadÚnico) e distribuidora (para troca de titularidade ou para pedir o desconto).",
+    "fonte": "ANEEL – Tarifa Social: https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "TS05",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Inscrever ou atualizar o CadÚnico",
+    "palavras_chave": [
+      "cadunico",
+      "cadastro unico",
+      "atualizar cadastro",
+      "cras",
+      "nis",
+      "me inscrever"
+    ],
+    "resposta": "O CadÚnico é a porta de entrada para a Tarifa Social e o Desconto Social. Para manter o benefício, o cadastro precisa ter sido atualizado nos últimos 2 anos, com endereço e moradores corretos. Se a família ainda não está inscrita, a inscrição é feita no CRAS. Leve os documentos dos moradores e uma conta de luz recente; confirme a lista completa no CRAS da sua cidade, porque pode variar.",
+    "documentos": [
+      "Documentos pessoais dos moradores",
+      "Conta de luz recente",
+      "Comprovante de residência"
+    ],
+    "onde": "CRAS (Centro de Referência de Assistência Social) da sua cidade.",
+    "fonte": "MME – Tarifa Social: https://www.gov.br/mme/pt-br/assuntos/noticias/tarifa-social-saiba-como-funciona-e-quem-pode-pedir-desconto | ANEEL: https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "TS06",
+    "categoria": "Tarifa Social e descontos",
+    "titulo": "Família com aparelho elétrico para tratamento de saúde",
+    "palavras_chave": [
+      "aparelho",
+      "equipamento medico",
+      "tratamento",
+      "concentrador de oxigenio",
+      "deficiencia",
+      "3 salarios"
+    ],
+    "resposta": "Famílias no CadÚnico com renda de até 3 salários mínimos têm direito à Tarifa Social se alguém da casa tem doença ou deficiência cujo tratamento exige o uso contínuo de aparelho que consome energia. Nesse caso, além do CadÚnico, é preciso apresentar à distribuidora relatório e atestado de um profissional médico. Avise também a distribuidora que há na casa alguém que depende de equipamento elétrico.",
+    "documentos": [
+      "Relatório e atestado assinados por profissional médico",
+      "Comprovante de inscrição no CadÚnico",
+      "Conta de luz recente"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência) e CRAS.",
+    "fonte": "ANEEL – Tarifa Social: https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social | ANEEL – cadastro automático: https://www.gov.br/aneel/pt-br/assuntos/noticias/2022/governo-federal-aprova-novo-modo-de-cadastro-na-tarifa-social",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "CO01",
+    "categoria": "Conta atrasada e corte",
+    "titulo": "Conta atrasada: quando a luz pode ser cortada",
+    "palavras_chave": [
+      "corte",
+      "cortar a luz",
+      "aviso de corte",
+      "conta atrasada",
+      "vao cortar",
+      "nao paguei a conta",
+      "atrasada"
+    ],
+    "resposta": "Com conta em atraso, a distribuidora pode suspender o fornecimento, mas precisa avisar por escrito com pelo menos 15 dias de antecedência e informar o dia a partir do qual o corte pode acontecer. O corte por uma conta não paga só pode ser feito em até 90 dias depois do vencimento dela. Se você mostrar o comprovante de pagamento à equipe na hora do corte, a luz não pode ser cortada.",
+    "documentos": [
+      "Aviso de corte (vem na fatura ou em carta)",
+      "Comprovante de pagamento, se já pagou"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência).",
+    "fonte": "ANEEL – Como resolver: https://www.gov.br/aneel/pt-br/consumidores/como-resolver | REN ANEEL 1.000/2021, art. 357: https://www2.aneel.gov.br/cedoc/ren20211000.html",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "CO02",
+    "categoria": "Conta atrasada e corte",
+    "titulo": "Quando é proibido cortar a luz: dias e horários",
+    "palavras_chave": [
+      "sexta",
+      "sabado",
+      "domingo",
+      "feriado",
+      "fim de semana",
+      "horario do corte"
+    ],
+    "resposta": "O corte por falta de pagamento só pode ser feito das 8h às 18h. É proibido cortar às sextas-feiras, sábados, domingos, em feriados e em véspera de feriado. Se a luz foi cortada num desses dias ou fora do horário, o corte é irregular: veja a orientação sobre corte indevido.",
+    "documentos": [
+      "Foto ou registro da data e hora do corte",
+      "Número de protocolo da reclamação"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência). Se não resolver, ouvidoria da distribuidora e depois a ANEEL (167).",
+    "fonte": "ANEEL – Como resolver: https://www.gov.br/aneel/pt-br/consumidores/como-resolver | REN ANEEL 1.000/2021, art. 359: https://www2.aneel.gov.br/cedoc/ren20211000.html",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "CO03",
+    "categoria": "Conta atrasada e corte",
+    "titulo": "Parcelar a conta de luz atrasada",
+    "palavras_chave": [
+      "parcelar",
+      "parcelamento",
+      "negociar",
+      "acordo",
+      "dividir a divida",
+      "pagar em parcelas"
+    ],
+    "resposta": "Você pode pedir à distribuidora para parcelar o débito. Para quem é da subclasse baixa renda (Tarifa Social), o parcelamento é obrigatório quando você pede, desde que aquele débito não tenha sido parcelado antes, e deve ter no mínimo 3 parcelas. As parcelas costumam vir nas próximas contas de luz. Atenção: atrasar uma parcela gera multa e juros e pode levar ao corte.",
+    "documentos": [
+      "Conta de luz ou número da instalação",
+      "Documento do titular"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência).",
+    "fonte": "REN ANEEL 1.000/2021, art. 344: https://www2.aneel.gov.br/cedoc/ren20211000.html",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "CO04",
+    "categoria": "Conta atrasada e corte",
+    "titulo": "Multa e juros por atraso na conta de luz",
+    "palavras_chave": [
+      "multa",
+      "juros",
+      "quanto vou pagar",
+      "valor a mais",
+      "encargos",
+      "atrasei",
+      "atraso"
+    ],
+    "resposta": "No atraso, a distribuidora pode cobrar multa de até 2%, juros de 1% ao mês calculados por dia de atraso e atualização pelo IPCA. Se o vencimento cair em sábado, domingo ou feriado, pagar no primeiro dia útil seguinte não é atraso e não pode gerar multa.",
+    "documentos": [],
+    "onde": "Os acréscimos aparecem na conta seguinte. Dúvidas: Distribuidora de energia da sua região (app, site, central telefônica ou agência).",
+    "fonte": "REN ANEEL 1.000/2021, art. 343: https://www2.aneel.gov.br/cedoc/ren20211000.html",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "RE01",
+    "categoria": "Religação e direitos",
+    "titulo": "Religação da luz depois de pagar",
+    "palavras_chave": [
+      "religar",
+      "religacao",
+      "voltar a luz",
+      "paguei e nao voltou",
+      "luz cortada",
+      "restabelecer"
+    ],
+    "resposta": "Depois de pagar o débito (ou a primeira parcela do acordo), avise a distribuidora e peça a religação. Ela tem até 24 horas para religar em área urbana e 48 horas em área rural. A distribuidora pode cobrar taxa de religação se cumprir o prazo; se atrasar, deve compensar você na conta de luz.",
+    "documentos": [
+      "Comprovante de pagamento",
+      "Número de protocolo do pedido de religação"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência).",
+    "fonte": "ANEEL – Como resolver: https://www.gov.br/aneel/pt-br/consumidores/como-resolver",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "RE02",
+    "categoria": "Religação e direitos",
+    "titulo": "Corte indevido: cortaram minha luz errado",
+    "palavras_chave": [
+      "corte indevido",
+      "cortaram errado",
+      "cortaram sem aviso",
+      "ja tinha pago",
+      "corte irregular"
+    ],
+    "resposta": "O corte é indevido se você pagou até a data limite do aviso, se pagou por Pix antes do corte, ou se a distribuidora não seguiu as regras (sem aviso de 15 dias, numa sexta-feira, num feriado etc.). Nesse caso, a religação deve ser feita sem custo, em prazo menor (até 4 horas, segundo o contrato padrão das distribuidoras), e você tem direito a um crédito de compensação na conta.",
+    "documentos": [
+      "Comprovante de pagamento com data",
+      "Aviso de corte recebido (ou prova de que não recebeu)",
+      "Número de protocolo"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência). Sem solução: ouvidoria da distribuidora e depois a ANEEL (167) ou o Procon.",
+    "fonte": "REN ANEEL 1.000/2021, arts. 361 e 441: https://www2.aneel.gov.br/cedoc/ren20211000.html (prazo de 4 h: contrato de adesão padrão das distribuidoras)",
+    "verificado_em": "12/11/2026"
+  },
+  {
+    "id": "RE03",
+    "categoria": "Religação e direitos",
+    "titulo": "Dívida do antigo morador e troca de titularidade",
+    "palavras_chave": [
+      "antigo morador",
+      "inquilino anterior",
+      "divida de outra pessoa",
+      "troca de titularidade",
+      "mudar o nome da conta",
+      "conta no nome"
+    ],
+    "resposta": "Você só responde por débitos da sua própria titularidade. A distribuidora não pode exigir que você pague a dívida de outra pessoa (como o antigo morador) para trocar a titularidade ou religar a luz. Trocar a conta para o nome de alguém da família também é o que permite receber a Tarifa Social automaticamente.",
+    "documentos": [
+      "Documento com CPF do novo titular",
+      "Contrato de aluguel ou comprovante de que mora no imóvel"
+    ],
+    "onde": "Distribuidora de energia da sua região (app, site, central telefônica ou agência).",
+    "fonte": "REN ANEEL 1.000/2021, art. 346: https://www2.aneel.gov.br/cedoc/ren20211000.html | ANEEL – Conheça a Resolução 1.000: https://www.gov.br/aneel/pt-br/assuntos/noticias/2022/conheca-a-resolucao-1-000-que-reune-os-direitos-e-deveres-do-consumidor-de-energia-eletrica",
+    "verificado_em": "12/11/2026"
+  }
+]
