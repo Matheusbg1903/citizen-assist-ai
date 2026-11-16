@@ -13,7 +13,7 @@ Global Solution 2026.2 · FIAP · 1º ano de Ciência da Computação · Pensame
 |          Nome            |     RM    |
 |--------------------------|-----------|
 | Matheus Borges Soares    | RM 574085 |
-| Erick Hernandes Penhabel | RM 570237 |
+| Eric Hernandes Penhalbel | RM 570237 |
 | Enzo Ricardo Silva       | RM 571333 |
 
 ## Público e problema
